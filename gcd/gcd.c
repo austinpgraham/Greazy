@@ -6,7 +6,6 @@
  * between the two numbers use Euclid's algorithm.
 */
 int main(int argc, char** argv) {
-
     // Check valid arguments
     if (argc < 3) {
         printf("Invalid number of arguments given.\n");

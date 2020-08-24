@@ -45,6 +45,11 @@ int atoi (char* str) {
     while (ptr >= 0) {
         char ptr_char = str[ptr];
 
+        // Check that if we are at the beginning of the 
+        // string and the character is a negative sign,
+        // then we return a negative result
+        if (ptr == 0 && ptr_char == '-') return -result;
+
         // Use the ASCII value to get the numeric value.
         // At this point, we can check if it is a valid number. If not,
         // then we throw an error
