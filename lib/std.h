@@ -1,4 +1,7 @@
+#ifndef STD_H
+#define STD_H
 #include "math.h"
+#include "string.h"
 
 // A few useful ASCII contants;
 #define ASCII_0 48
@@ -47,3 +50,4 @@ int atoi (char* str) {
 
     return result;
 }
+#endif

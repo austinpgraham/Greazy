@@ -1,3 +1,6 @@
+#ifndef MATH_H
+#define MATH_H
+
 /** 
  * Calculate a generic power function.
 */
@@ -42,3 +45,4 @@ int euclid_gcd(int m, int n) {
 
     return n;
 }
+#endif
