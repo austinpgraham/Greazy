@@ -1,9 +1,13 @@
+#ifndef SERVER_H
+#define SERVER_H
 #include <stdio.h>
 #include <unistd.h> 
 #include <sys/socket.h> 
 #include <netinet/in.h>
 #include "request.h"
 #include "../lib/string.h"
+
+#define MAX_REQUEST_LENGTH 1024
 
 int launch_server(int port, int backlog_len) {
     int server_fd;
@@ -49,13 +53,18 @@ int launch_server(int port, int backlog_len) {
             continue;
         }
 
+        // Get the data of the request
+        char buffer[MAX_REQUEST_LENGTH];
+        int bytes_read = read(next_connection, buffer, MAX_REQUEST_LENGTH);
+        printf("Read %d bytes: %s.\n", bytes_read, buffer);
+
         // Process the connection request
         char response_message [1000];
         generate_response(response_message, 200, "Got it!", "text/plain");
         send(next_connection, response_message, str_len(response_message), 0);
-        printf("Sent response.\n");
     } 
 
     // We are successfully launched
     return 1;
 }
+#endif
