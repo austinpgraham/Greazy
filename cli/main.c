@@ -33,7 +33,12 @@ int main(int argc, char** argv) {
 
     // Determine what to do based on the command given.
     char* service_arg = argv[1];
-    if (str_equals(service_arg, "sqs")) process_sqs_command(argv[2]);
+    if (str_equals(service_arg, "sqs")) {
+        if (!process_sqs_command(&argv[2])) {
+            printf("Failed to process your SQS command. Exiting...\n");
+            return -1;
+        }
+    }
     else {
 
         // If we don't recognize the command, then print the

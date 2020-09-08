@@ -1,3 +1,5 @@
+#ifndef STRING_H
+#define STRING_H
 #include <stdio.h>
 
 /** 
@@ -59,3 +61,4 @@ int str_equals(char* str_one, char* str_two) {
     // If we cover both strings, then they're equal
     return 1;
 }
+#endif
