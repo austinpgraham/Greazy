@@ -3,8 +3,12 @@
 #include "../lib/string.h"
 #include "../lib/std.h"
 
+// Simple macro for locally checking a command arg for this cli element.
 #define CHECK_ARG(short_arg, long_arg) str_equals(command[command_ptr], short_arg) || str_equals(command[command_ptr], long_arg)
 
+/**
+ * Print the help menu for the SQS CLI
+ */
 void print_sqs_help() {
     printf("Commands related to the clone SQS service.\n");
     printf("\n");
@@ -16,6 +20,9 @@ void print_sqs_help() {
     printf("\n");
 }
 
+/**
+ * Process commands for SQS CLI 
+ */
 int process_sqs_command(int commandc, char** command) {
     // Decide what to do based on the given command.
     if (str_equals(command[0], "help")) print_sqs_help();

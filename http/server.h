@@ -2,6 +2,7 @@
 #include <unistd.h> 
 #include <sys/socket.h> 
 #include <netinet/in.h>
+#include "request.h"
 #include "../lib/string.h"
 
 int launch_server(int port, int backlog_len) {
@@ -49,7 +50,8 @@ int launch_server(int port, int backlog_len) {
         }
 
         // Process the connection request
-        char* response_message = "This is a test response";
+        char response_message [1000];
+        generate_response(response_message, 200, "Got it!", "text/plain");
         send(next_connection, response_message, str_len(response_message), 0);
         printf("Sent response.\n");
     } 
