@@ -1,27 +1,8 @@
-#include <stddef.h>
 #include "math.h"
 
 // A few useful ASCII contants;
 #define ASCII_0 48
 #define ASCII_9 57
-
-/** 
- * Returns the length of the given string.
- * 
- * "Austin Graham" -> 13
-*/
-int str_len(char* str) {
-    int result = 0;
-    
-    // Return 0 if there is no string
-    if (str == NULL || str[0] == '\0') return result;
-
-    // Increment while we haven't reached the null terminator
-    char ptr = 0;
-    while (str[ptr++] != '\0') result++;
-
-    return result;
-}
 
 /** 
  * Simple implementation of a function converting
